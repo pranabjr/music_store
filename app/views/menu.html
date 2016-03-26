@@ -1,0 +1,57 @@
+
+    <div class="container">
+        <div class="row row-content" ng-controller="MenuController">
+            
+            <div class="col-xs-12">
+
+            <button ng-click="toggleDetails()" class="btn btn-xs btn-primary pull-right" type="button">
+                    {{showDetails ? 'Hide Details':'Show Details'}}
+            </button>  
+
+
+              <ul class="nav nav-pills" role="tablist">
+                <li role="presentation" ng-class="{active:isSelected(1)}">
+                  <a ng-click="select(1)" aria-controls="all menu" role="tab">All</a>
+                </li>
+                <li role="presentation" ng-class="{active:isSelected(2)}">
+                  <a ng-click="select(2)" aria-controls="rock" role="tab">Rock</a>
+                </li>
+                <li role="presentation" ng-class="{active:isSelected(3)}">
+                  <a ng-click="select(3)" aria-controls="techno" role="tab">Techno</a>
+                </li>
+                <li role="presentation" ng-class="{active:isSelected(4)}">
+                  <a ng-click="select(4)" aria-controls="classical" role="tab">Classical</a>
+                </li>
+              </ul>
+              <div class="tab-content">
+              <ul class="media-list tab-pane fade in active">
+                <li class="media" ng-repeat="alb in albums|filter:filtText">
+                    <div class="media-left media-middle">
+                        <a ui-sref="app.dishdetails({id: alb._id})">
+                            <img class="media-object img-thummbnail" ng-src={{alb.image}} height="400" width="400">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                      <h2 class="media-heading">
+                        {{alb.name}}
+                      <span class="label label-danger label-xs">{{alb.label}}</span>
+                      <span class="badge">{{alb.price | currency}}</span><br>
+                      <p></p>    
+                      <p><span class="label label-primary label-xs">{{alb.Artist}}</span></p>
+                      </h2>
+                      <p></p>
+                      <p></p>
+                      <p ng-show="showDetails">{{alb.description}}</p>
+                      <!--<p>Comment: {{dish.comment}}</p>
+                      <p>Type your comment:
+                        <input type="text" ng-model='dish.comment'>
+
+                      </p>!-->
+                    </div>
+                    
+                </li>
+              </ul>
+              </div>
+            </div>
+        </div>
+    </div>

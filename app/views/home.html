@@ -1,0 +1,111 @@
+
+    <div class="container" ng-controller="IndexController">
+        <!--For New Arrivals-->
+        <div class="row row-content" style="background-color:floralwhite">
+            <div class="col-xs-12 col-sm-3 col-sm-push-9">
+                <p style="padding:20px;"></p>
+                <h3 align=center>New Arrivals</h3>
+            </div>
+            
+            <div class="col-xs-12 col-sm-9 col-sm-pull-3">
+                <ul class="media-list">
+                <li class="media" ng-repeat="new in newAr">
+                
+                    
+                    
+                    
+                    <!-- <div class="media-body">
+                        <h2 class="media-heading">
+                            {{ftDish.name}}
+                            <span class="label label-danger label-xs">{{ftDish.label}}</span>
+                            <span class="badge">{{ftDish.price | currency}}</span>
+                        </h2>
+
+                  <p>{{ftDish.description}}</p>-->
+                       
+                    <div class="media-left media-middle">
+                        <a ui-sref="app.dishdetails({id: new._id})">
+                            <img class="media-object img-thummbnail" ng-src={{new.image}} width="150" height="150">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                      <h2 class="media-heading">
+                        {{new.name}}
+                      <span class="label label-danger label-xs">{{new.label}}</span>
+                      <span class="badge">{{new.price | currency}}</span>
+                      <br><br><span class="label label-primary label-xs">{{new.artist}}</span>
+                      </h2>
+                      
+                    </div>
+                    
+                
+                 
+                </li>
+                </ul>
+                </div>
+              </div>
+        
+                
+            
+
+        <!--For Promotion-->
+        <div class="row row-content" style="background-color:floralwhite">
+            <div class="col-xs-12 col-sm-3">
+                <p style="padding:20px;"></p>
+                <h3 align=center>Deal of the Day</h3>
+            </div>
+            <div class="col-xs-12 col-sm-9">
+
+                <div class="media" ng-repeat="promotion in promotions">
+                    
+                    <div class="media-body">
+                        <h2 class="media-heading">
+                            {{promotion.name}}
+                            <span class="label label-danger label-xs">{{promotion.label}}</span>
+                            <span class="badge">{{promotion.price | currency}}</span>
+                        </h2>
+
+                        <p>{{promotion.description}}</p>
+                    </div> 
+
+                <div class="media-right media-middle">
+                        <a href="#">
+                            <img class="media-object img-thumbnail" ng-src={{promotion.image}} height="300" width="300">
+                        </a>
+                </div>               
+              </div>
+                
+            </div>
+        </div>
+
+
+        <!--For Executive Chef-->
+        <div class="row row-content myback">
+            <div class="col-xs-12 col-sm-3 col-sm-push-9">
+                <p style="padding:20px;"></p>
+                <h3 align=center>Message from the Owner</h3>
+            </div>
+            <div class="col-xs-12 col-sm-9 col-sm-pull-3">
+                <div class="media">
+                    <div class="media-left media-middle">
+                            <a href="#">
+                                <img class="media-object" ng-src={{exChef.image}}>
+                            </a> 
+                        </div>
+                        
+                        <div class="media-body">
+                            <blockquote><p>"The Music Room has always been dedicated itself in  providing best music in the market to our valued customers. I hope the love and support bestowed upon us will continue as we grow and improve. Customer satisfaction is always out topmost priority."</p>
+                                <p><small>{{exChef.name}}, {{exChef.designation}}</small></p>               
+                            </blockquote>
+
+                            <!--<h3 class="media-heading"><strong>{{exChef.name}}</strong> <small>{{exChef.designation}}</small></h3>
+                            
+                            <p>{{exChef.description}}</p>-->                        
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
